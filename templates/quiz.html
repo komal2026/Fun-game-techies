@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Quiz Game</title></head>
+<body>
+  <h1>Fun Tech Quiz 🎮</h1>
+  <form method="POST">
+    {% for idx, q in enumerate(questions) %}
+      <p><strong>{{ q[0] }}</strong></p>
+      {% for i in range(1, 5) %}
+        <input type="radio" name="q{{ idx }}" value="{{ i }}"> {{ q[i] }}<br>
+      {% endfor %}
+    {% endfor %}
+    <br><button type="submit">Submit</button>
+  </form>
+</body>
+</html>
