@@ -13,10 +13,10 @@ def serve_static_file(path):
     return send_from_directory('.', path)
 
 if __name__ == '__main__':
-    # Get the PORT from Render's environment
-    port = int(os.environ.get('PORT', 5000))  # Default to 5000 if not set
-    # Start the server on 0.0.0.0 so it's accessible from the outside
+    import os
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
 
 
 questions = [["Which data structure uses LIFO (Last In, First Out) ordering?","Queue","Stack","Linked List","Tree",2],["What is the time complexity of searching for an element in a balanced binary search tree (BST)?","O(1)","O(log n)","O(n)","O(n log n)",2],["Which sorting algorithm has the best average-case time complexity?","Bubble Sort","Selection Sort","Quick Sort","Insertion Sort",3],["What does a hash function do in a hash table?","Sorts data","Searches for data","Maps a key to an index","Merges data",3],["Which traversal of a binary tree processes the root before its subtrees?","Inorder", "Preorder","Postorder","Level-order",2],["Which of the following data structures is most suitable for implementing recursion?","Stack","Queue","Array","Linked List",1],["What is the worst-case time complexity of Quick Sort?","O(n log n)","O(log n)","O(n)","O(n²)",4],["In a min-heap, what is the relation between a parent node and its children?",
