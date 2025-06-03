@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
-import random
+import os
 
-app = Flask(__name__)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
 
 questions = [["Which data structure uses LIFO (Last In, First Out) ordering?","Queue","Stack","Linked List","Tree",2],["What is the time complexity of searching for an element in a balanced binary search tree (BST)?","O(1)","O(log n)","O(n)","O(n log n)",2],["Which sorting algorithm has the best average-case time complexity?","Bubble Sort","Selection Sort","Quick Sort","Insertion Sort",3],["What does a hash function do in a hash table?","Sorts data","Searches for data","Maps a key to an index","Merges data",3],["Which traversal of a binary tree processes the root before its subtrees?","Inorder", "Preorder","Postorder","Level-order",2],["Which of the following data structures is most suitable for implementing recursion?","Stack","Queue","Array","Linked List",1],["What is the worst-case time complexity of Quick Sort?","O(n log n)","O(log n)","O(n)","O(n²)",4],["In a min-heap, what is the relation between a parent node and its children?",
 "Parent ≥ Children","Parent ≤ Children","Parent = Children","No relation",2],["Which graph traversal uses a queue and visits nodes level by level?","DFS","BFS","Dijkstra","Bellman-Ford",2],["What is the time complexity to insert an element into a binary search tree (average case)?","O(n)", "O(n log n)", "O(log n)", "O(1)",3],["Which of the following is not a stable sorting algorithm?","Merge Sort", "Insertion Sort", "Quick Sort", "Bubble Sort",3],["Which data structure is used in the implementation of a priority queue?","Stack","Array","Heap","Linked List",3],["In a graph, which algorithm guarantees the shortest path from a single source to all other vertices (no negative weights)?","BFS", "DFS", "Dijkstra", "Kruskal",3],["Which of the following problems can be solved using the sliding window technique?","Shortest Path", "Maximum Subarray Sum", "Graph Coloring", "Topological Sorting",2]]
