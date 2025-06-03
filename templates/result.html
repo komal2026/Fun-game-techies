@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head><title>Results</title></head>
+<body>
+  <h1>Your Score: {{ score }}/{{ total }}</h1>
+  {% for result, message in feedback %}
+    <p>{{ result }} - {{ message }}</p>
+  {% endfor %}
+</body>
+</html>
