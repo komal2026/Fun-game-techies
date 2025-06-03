@@ -2,20 +2,22 @@ from flask import Flask, send_from_directory,render_template, request
 import random
 import os
 
+
 app = Flask(__name__, static_folder='.')
 
 @app.route('/')
-def serve_index():
+def index():
     return send_from_directory('.', 'index.html')
 
 @app.route('/<path:path>')
-def serve_static_file(path):
+def static_proxy(path):
     return send_from_directory('.', path)
 
+# ✅ This must be at the bottom of the file
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get('PORT', 5000))  # Use Render's PORT
+    app.run(host='0.0.0.0', port=port)        # Bind to 0.0.0.0 for external access
+
 
 
 
