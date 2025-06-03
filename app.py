@@ -1,16 +1,21 @@
-from flask import Flask, render_template, request
+from flask import Flask, send_from_directory,render_template, request
 import random
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.')
 
-# Your routes go here
 @app.route('/')
-def home():
-    return 'Hello, Render!'
+def serve_index():
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_file(path):
+    return send_from_directory('.', path)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    # Get the PORT from Render's environment
+    port = int(os.environ.get('PORT', 5000))  # Default to 5000 if not set
+    # Start the server on 0.0.0.0 so it's accessible from the outside
     app.run(host='0.0.0.0', port=port)
 
 
